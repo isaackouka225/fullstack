@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('http://localhost:8080/articles') // Changez ici le port si nécessaire
-        .then(response => response.json())
+    fetch('http://localhost:8080/articles')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
         .then(articles => {
             const container = document.getElementById('articles-container');
             articles.forEach(article => {
@@ -13,5 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
                 container.appendChild(articleElement);
             });
+        })
+        .catch(error => {
+            const container = document.getElementById('articles-container');
+            container.innerHTML = `<p>Error loading articles: ${error.message}</p>`;
         });
 });
