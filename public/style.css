@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#articles-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.article {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}

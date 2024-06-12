@@ -74,7 +74,7 @@ app.post('/articles', (req, res) => {
 
 // Route pour la racine de l'application
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html')); // Utiliser path.join pour obtenir le chemin absolu
+    res.sendFile(path.join(__dirname, 'index.html')); // Utiliser path.join pour obtenir le chemin absolu
 });
 
 app.listen(port, () => {
